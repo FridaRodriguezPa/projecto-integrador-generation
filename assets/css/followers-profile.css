@@ -1,6 +1,12 @@
+@import url(./styles.css);
+
 * {
     margin: 0;
     box-sizing: border-box;
+}
+
+main {
+    padding-bottom: 0.1px;
 }
 
 .banner {
@@ -20,7 +26,7 @@
 }
 
 .user-navbar__id {
-    background-color: var(--rosaOpaco);
+    background-color: var(--bgcard);
     padding: 12px;
     height: 60px;
     display: flex;
@@ -48,7 +54,7 @@
 
 .user-navbar__id button {
     border: none;
-    background-color: var(--azulClaro);
+    background-color: var(--rosaRGBA);
     color: var(--white);
     border-radius: var(--borderRadius);
     padding: 4px 16px;
@@ -62,7 +68,7 @@ button:hover {
 .user-navbar__interacciones {
     height: 50px;
     width: 100%;
-    background-color: var(--rosa);
+    background-color: var(--rosaRGBA);
     border-radius: 0 0 20px 20px;
     display: flex;
     justify-content: space-around;
@@ -79,10 +85,12 @@ button:hover {
    imágenes, iconos y textos */ 
 
 
-.card {
-    margin: 50px 20px;
+.card-user-main {
+    margin: 20px;
+    margin-top: 25px;
+    margin-bottom: 50px;
     border-radius: var(--borderRadius);
-    box-shadow: 0px 0px 10px 0px var(--white);
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
     display: flex;
     position: relative;
     height: 100vw;
@@ -126,11 +134,18 @@ button:hover {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 10px;
 }
 
 .card__info-img {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+}
+
+.card_info-texto {
+    margin-top: 0;
+    font-size: 1.6rem;
 }
 
 .card__post {
@@ -161,10 +176,14 @@ button:hover {
     right: 50px;
 }
 
+.card__elementos-share {
+    margin-right: 0;
+}
+
 .card__elementos-boton {
     height: 100%;
     border: none;
-    background-color: var(--azulClaro);
+    background-color: var(--rosaRGBA);
     color: var(--white);
     border-radius: var(--borderRadius);
     padding: 4px 16px;
@@ -176,19 +195,40 @@ button:hover {
    el ancho en pixeles de una tablet */
 
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 360px) {
 
     .card__elementos {
-        width: 204.45px;
+        width: 191.14px;
+        bottom: 10px;
+        right: 15px;
+        justify-content: space-between;
     }
 }
 
- 
-@media screen and (max-width: 375px) {
+
+@media screen and (min-width: 361px) and (max-width: 375px) {
 
     .card__elementos {
+        width: 204.45px;
         bottom: 10px;
-        right: 25px;
+        right: 15px;
+        justify-content: space-between;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+
+    .card__info-content p {
+        font-size: 1.3rem;
+    }
+
+    .card__content-post h2, p {
+        font-size: 1.3rem;
+    }
+
+    .banner {
+        height: 125px;
     }
 }
 
@@ -197,6 +237,16 @@ button:hover {
 
     .card__elementos {
         bottom: 50px;
+    }
+
+    .banner {
+        height: 160px;
+    }
+
+    .card-user-main {
+        margin: 20px;
+        margin-top: 40px;
+        margin-bottom: 60px;
     }
 }
 
@@ -212,7 +262,7 @@ button:hover {
         margin-right: 30px;
     }
 
-    .card {
+    .card-user-main {
         height: 60vw;
     }
 
@@ -241,6 +291,10 @@ button:hover {
         position: static;
     }
 
+    .banner {
+        height: 225px;
+    }
+
     .user-navbar {
         margin: 0 160px;
     }
@@ -250,15 +304,33 @@ button:hover {
         gap: 40px;
     }
 
+    .user-navbar__datos h2 {
+        font-size: 2rem;
+    }
+
+    .user-navbar__interacciones a {
+        font-size: 2rem;
+    }
+
+    .user-navbar__id button {
+        font-size: 1.5rem;
+    }
+
+    .user-navbar__id img {
+        width: 100px;
+        height: 100px;
+        margin-top: -60px;
+    }
+
     .user-navbar__id button {
         margin-right: 50px;
     }
 
-    .card {
-        box-shadow: 0px 0px 20px 0px var(--white);
-        margin: 50px 160px;
-        background-color: rgba(242, 128, 182, 0.7);
-        height: 40vw;
+    .card-user-main {
+        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        margin: 85px 160px;
+        height: 45vw;
+        background-color: var(--bgcard);
     }
 
     .card__img-back {
@@ -266,35 +338,55 @@ button:hover {
     }
 
     .card__info-media-album {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        margin-bottom: 0;
     }
 
     .card__info-media-img {
         object-fit: cover;
+        margin-right: 0;
+        border-radius: 10px;
     }
 
     .card__overtext {
         padding: 40px;
     }
 
+    .card__overtext-superior {
+        height: 90%;
+    }
+
     .card__info {
-        flex-basis: 200px;
+        flex-basis: 300px;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 10px;
-        border-right: 5px solid var(--white);
+        border-right: 5px solid var(--rosaRGBA);
     }
 
     .card__post {
         margin-left: 50px;
     }
+
+    .card__content-post h2, p {
+        font-size: 2rem;
+    }
+
+    .card__elementos-boton {
+        font-size: 1.5rem;
+    }
+
+    .card__elementos {
+        bottom: 30px;
+    }
 }
 
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
+
+    .card__info {
+        justify-content: center;
+    }
 
     .user-navbar__datos {
         margin-left: 100px;
@@ -305,7 +397,15 @@ button:hover {
         margin-right: 100px;
     }
 
-    .card {
+    .card-user-main {
         height: 35vw;
+    }
+
+    .card__content-post {
+        justify-content: center;
+    }
+
+    .card__elementos {
+        bottom: 50px;
     }
 }
